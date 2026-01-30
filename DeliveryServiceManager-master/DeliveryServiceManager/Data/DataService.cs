@@ -1,0 +1,125 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+
+namespace DeliveryServiceManager
+{
+    public class DataService
+    {
+        private const string DataFile = "data.json";
+        private AppData _data;
+
+        public DataService()
+        {
+            LoadData();
+            CreateTestDataIfNeeded();
+        }
+
+        // Загрузка данных из файла
+        private void LoadData()
+        {
+            if (File.Exists(DataFile))
+            {
+                string json = File.ReadAllText(DataFile);
+                _data = JsonSerializer.Deserialize<AppData>(json);
+            }
+            else
+            {
+                _data = new AppData();
+            }
+        }
+
+        // Сохранение данных в файл
+        public void SaveData()
+        {
+            string json = JsonSerializer.Serialize(_data, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(DataFile, json);
+        }
+
+        // Создание тестовых данных
+        private void CreateTestDataIfNeeded()
+        {
+            if (!_data.Users.Any())
+            {
+                _data.Users.Add(new User { Login = "admin", Password = "admin123", Role = "admin" });
+                _data.Users.Add(new User { Login = "courier", Password = "courier123", Role = "courier" });
+
+                _data.Clients.Add(new Client { Id = 1, FullName = "Иванов Иван", Phone = "+79991234567", Address = "ул. Ленина, 1" });
+                _data.Clients.Add(new Client { Id = 2, FullName = "Петрова Мария", Phone = "+79997654321", Address = "ул. Мира, 15" });
+
+                _data.Orders.Add(new Order
+                {
+                    Id = 1,
+                    ClientId = 1,
+                    ClientName = "Иванов Иван",
+                    Products = "Хлеб, Молоко, Яйца",
+                    TotalPrice = 450,
+                    Status = OrderStatus.Оформлен,
+                    Date = DateTime.Now
+                });
+
+                SaveData();
+            }
+        }
+
+        // === Работа с клиентами ===
+        public List<Client> GetClients() => _data.Clients;
+
+        public void AddClient(Client client)
+        {
+            client.Id = _data.Clients.Any() ? _data.Clients.Max(c => c.Id) + 1 : 1;
+            _data.Clients.Add(client);
+            SaveData();
+        }
+
+        public void DeleteClient(int id)
+        {
+            var client = _data.Clients.FirstOrDefault(c => c.Id == id);
+            if (client != null)
+            {
+                _data.Clients.Remove(client);
+                SaveData();
+            }
+        }
+
+        // === Работа с заказами ===
+        public List<Order> GetOrders() => _data.Orders;
+
+        public List<Order> GetCourierOrders() => _data.Orders.Where(o => o.Status != OrderStatus.Доставлен).ToList();
+
+        public void AddOrder(Order order)
+        {
+            order.Id = _data.Orders.Any() ? _data.Orders.Max(o => o.Id) + 1 : 1;
+            order.Date = DateTime.Now;
+            _data.Orders.Add(order);
+            SaveData();
+        }
+
+        public void UpdateOrderStatus(int orderId, OrderStatus status)
+        {
+            var order = _data.Orders.FirstOrDefault(o => o.Id == orderId);
+            if (order != null)
+            {
+                order.Status = status;
+                SaveData();
+            }
+        }
+
+        // === Аутентификация ===
+        public User Authenticate(string login, string password)
+        {
+            return _data.Users.FirstOrDefault(u =>
+                u.Login == login && u.Password == password);
+        }
+
+        // === Статистика ===
+        public int GetTotalOrders() => _data.Orders.Count;
+
+        public decimal GetTotalRevenue() =>
+            _data.Orders.Where(o => o.Status == OrderStatus.Доставлен).Sum(o => o.TotalPrice);
+
+        public int GetActiveClients() => _data.Clients.Count;
+    }
+}
