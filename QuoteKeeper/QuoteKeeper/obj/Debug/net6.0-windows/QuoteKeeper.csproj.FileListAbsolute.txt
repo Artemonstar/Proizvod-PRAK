@@ -1,0 +1,16 @@
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\bin\Debug\net6.0-windows\QuoteKeeper.exe
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\bin\Debug\net6.0-windows\QuoteKeeper.deps.json
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\bin\Debug\net6.0-windows\QuoteKeeper.runtimeconfig.json
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\bin\Debug\net6.0-windows\QuoteKeeper.dll
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\bin\Debug\net6.0-windows\QuoteKeeper.pdb
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeperGUI.Form1.resources
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.csproj.GenerateResource.cache
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.AssemblyInfoInputs.cache
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.AssemblyInfo.cs
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.csproj.CoreCompileInputs.cache
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.dll
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\refint\QuoteKeeper.dll
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.pdb
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\QuoteKeeper.genruntimeconfig.cache
+C:\Users\PIDOR1\source\repos\QuoteKeeper\QuoteKeeper\obj\Debug\net6.0-windows\ref\QuoteKeeper.dll
