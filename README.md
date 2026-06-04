@@ -151,7 +151,9 @@ T8 -	Загрузка из файла<br>
     <source src="prilozhenie.mp4" type="video/mp4">
     Ваш браузер не поддерживает тег video.
 </video>
-📁 Файл видео:(prilozhenie.mp4)
+## 🎥 Видео функционала приложения
+
+📁 Файл видео: [`prilozhenie.mp4`](prilozhenie.mp4)
 
 **Чтобы посмотреть видео:**
 1. Нажмите на ссылку выше
